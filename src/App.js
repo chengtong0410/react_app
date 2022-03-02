@@ -1,7 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import logo from "./logo.svg";
+import Request from "./server/api";
+import "./App.css";
 
 function App() {
+  useEffect(() => {
+    Request.TestCookieGet({})
+      .then((result) => {
+        console.log(
+          "chengTong ~ file: App.js ~ line 9 ~ TestCookiePost ~ result",
+          result
+        );
+      })
+      .catch((err) => {});
+  }, []);
   return (
     <div className="App">
       <header className="App-header">
